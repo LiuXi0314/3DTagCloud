@@ -12,7 +12,7 @@
             android:id="@+id/tagCloudView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:radiusPercent="0.8"
+            app:radiusPercent="0.5"
             android:layout_gravity="center"
             app:scrollSpeed="1"
             app:autoScrollMode="uniform"/>

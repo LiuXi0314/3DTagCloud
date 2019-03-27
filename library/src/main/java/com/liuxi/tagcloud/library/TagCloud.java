@@ -223,8 +223,6 @@ public class TagCloud {
             int diameter = 2 * radius;
             float per = diameter / 1.0f / (diameter + rz3);
             // let's set position, scale, alpha for the tag;
-            tagCloud.get(j).setLoc2DX((int) (rx3 * per));
-            tagCloud.get(j).setLoc2DY((int) (ry3 * per));
             tagCloud.get(j).setScale(per);
 
             // calculate alpha value

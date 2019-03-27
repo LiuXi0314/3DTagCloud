@@ -291,8 +291,8 @@ public class TagCloudView extends ViewGroup implements Runnable, TagsAdapter.OnD
                 child.setScaleX(tag.getScale());
                 child.setScaleY(tag.getScale());
                 int left, top;
-                left = (int) (centerX + tag.getLoc2DX()) - child.getMeasuredWidth() / 2;
-                top = (int) (centerY + tag.getLoc2DY()) - child.getMeasuredHeight() / 2;
+                left = (int) (centerX + tag.getLocX()) - child.getMeasuredWidth() / 2;
+                top = (int) (centerY + tag.getLocY()) - child.getMeasuredHeight() / 2;
 
                 child.layout(left, top, left + child.getMeasuredWidth(), top + child.getMeasuredHeight());
             }

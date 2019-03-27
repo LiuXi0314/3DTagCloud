@@ -29,7 +29,6 @@ public class Tag {
 
     private int popularity;  //this is the importance/popularity of the Tag
     private float locX, locY, locZ; //the center of the 3D Tag
-    private float loc2DX, loc2DY;
     private float scale;
     private float alpha;
     private float[] argb;
@@ -57,9 +56,6 @@ public class Tag {
         this.locX = locX;
         this.locY = locY;
         this.locZ = locZ;
-
-        this.loc2DX = 0;
-        this.loc2DY = 0;
 
         this.argb = new float[]{1.0f, 0.5f, 0.5f, 0.5f};
 
@@ -122,22 +118,6 @@ public class Tag {
 
     public void setPopularity(int popularity) {
         this.popularity = popularity;
-    }
-
-    public float getLoc2DX() {
-        return loc2DX;
-    }
-
-    public void setLoc2DX(float loc2dx) {
-        loc2DX = loc2dx;
-    }
-
-    public float getLoc2DY() {
-        return loc2DY;
-    }
-
-    public void setLoc2DY(float loc2dy) {
-        loc2DY = loc2dy;
     }
 
     public void setColorByArray(float[] rgb) {
