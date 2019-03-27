@@ -32,12 +32,7 @@ import android.os.Looper;
 import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-
+import android.view.*;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -241,7 +236,7 @@ public class TagCloudView extends ViewGroup implements Runnable, TagsAdapter.OnD
         speed = scrollSpeed;
     }
 
-    private void resetChildren() {
+    protected void resetChildren() {
         removeAllViews();
         //必须保证getChildAt(i) == mTagCloud.getTagList().get(i)
         for (Tag tag : mTagCloud.getTagList()) {
@@ -283,8 +278,11 @@ public class TagCloudView extends ViewGroup implements Runnable, TagsAdapter.OnD
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        int tagSize = mTagCloud.getTagList().size();
+        if (tagSize == 0) return;
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
+            if (i == tagSize) return;
             Tag tag = mTagCloud.get(i);
             if (child != null && child.getVisibility() != GONE) {
                 tagsAdapter.onThemeColorChanged(child, tag.getColor(), tag.getAlpha());
@@ -295,6 +293,7 @@ public class TagCloudView extends ViewGroup implements Runnable, TagsAdapter.OnD
                 top = (int) (centerY + tag.getLocY()) - child.getMeasuredHeight() / 2;
 
                 child.layout(left, top, left + child.getMeasuredWidth(), top + child.getMeasuredHeight());
+                child.setTranslationZ(-tag.getLocZ());
             }
         }
     }

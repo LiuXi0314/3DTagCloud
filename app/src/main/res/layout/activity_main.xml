@@ -5,15 +5,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context=".MainActivity">
 
-    <com.liuxi.tagcloud.library.TagCloudView
+    <com.liuxi.tagcloud.StarView
             android:id="@+id/tagCloudView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:radiusPercent="0.5"
-            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            app:radiusPercent="0.9"
             app:scrollSpeed="1"
             app:autoScrollMode="uniform"/>
 
